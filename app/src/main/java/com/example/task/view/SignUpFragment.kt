@@ -32,7 +32,7 @@ class SignUpFragment : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.registerButton.setOnClickListener {
-            val name = binding.nameInput.text.toString() // Mengambil input nama
+            val name = binding.nameInput.text.toString()
             val email = binding.emailInput.text.toString()
             val pass = binding.passwordInput.text.toString()
             val confirmPass = binding.confirmPasswordInput.text.toString()
@@ -41,17 +41,14 @@ class SignUpFragment : Fragment() {
                 if (pass == confirmPass) {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
-                            // Mendapatkan pengguna yang terdaftar
                             val user = firebaseAuth.currentUser
 
-                            // Memperbarui profil pengguna dengan nama
                             val profileUpdates = UserProfileChangeRequest.Builder()
                                 .setDisplayName(name)
                                 .build()
 
                             user?.updateProfile(profileUpdates)?.addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    // Profil berhasil diperbarui
                                     Toast.makeText(context, "Account created successfully!", Toast.LENGTH_SHORT).show()
                                     navigateToFragment(SignInFragment())
                                 } else {
@@ -76,12 +73,10 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    // Function to replace fragment using FragmentTransaction
     private fun navigateToFragment(fragment: Fragment) {
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
 
-        // Ganti fragment saat ini dengan fragment baru
         fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
         fragmentTransaction.addToBackStack(null)  // Tambahkan ke back stack jika diperlukan
         fragmentTransaction.commit()

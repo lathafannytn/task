@@ -35,11 +35,8 @@ class CreateTaskFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Inisialisasi ViewModel
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
-        // Menghubungkan View dari XML
         taskTitleEditText = view.findViewById(R.id.addTaskTitle)
         taskDescriptionEditText = view.findViewById(R.id.addTaskDescription)
         taskDateEditText = view.findViewById(R.id.taskDate)
@@ -49,7 +46,6 @@ class CreateTaskFragment : Fragment() {
         taskImageNameEditText = view.findViewById(R.id.taskImageName)
         addTaskButton = view.findViewById(R.id.addTask)
 
-        // Setup Spinner untuk Task Status
         val statusAdapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
@@ -58,13 +54,10 @@ class CreateTaskFragment : Fragment() {
         statusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         taskStatusSpinner.adapter = statusAdapter
 
-        // Action ketika Button "Select Image" ditekan (Contoh placeholder, sesuaikan dengan cara upload file Anda)
         uploadImageButton.setOnClickListener {
-            // Contoh placeholder untuk menghandle pemilihan gambar
             taskImageNameEditText.setText("example_image.png")
         }
 
-        // Action ketika Button "Add Task" ditekan
         addTaskButton.setOnClickListener {
             val title = taskTitleEditText.text.toString()
             val description = taskDescriptionEditText.text.toString()
@@ -72,31 +65,26 @@ class CreateTaskFragment : Fragment() {
             val status = TaskStatus.valueOf(taskStatusSpinner.selectedItem.toString())
             val filePath = taskImageNameEditText.text.toString()
 
-            // Validasi input
             if (title.isBlank() || description.isBlank() || dateTime == 0L) {
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Buat objek Task baru
             val newTask = Task(
                 name = title,
                 description = description,
                 dateTime = dateTime,
-                reminder = dateTime,  // Sesuaikan jika reminder berbeda
+                reminder = dateTime,
                 status = status,
                 filePath = filePath
             )
 
-            // Simpan task baru melalui ViewModel
             taskViewModel.insertTask(newTask)
 
-            // Kembali ke halaman sebelumnya
             findNavController().navigateUp()
         }
     }
 
-    // Fungsi untuk mengonversi tanggal dan waktu ke dalam format timestamp (long)
     private fun parseDateTime(date: String, time: String): Long {
         return try {
             val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())

@@ -13,16 +13,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Inflate layout
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set default fragment when activity starts
         if (savedInstanceState == null) {
-            loadFragment(HomeFragment())  // Fragment default saat pertama kali buka
+            loadFragment(HomeFragment())
         }
 
-        // Handle navigation item clicks
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             var selectedFragment: Fragment? = null
             when (item.itemId) {
@@ -38,11 +35,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Function to load fragment using FragmentTransaction
     private fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.nav_host_fragment, fragment)
-        transaction.addToBackStack(null)  // Optional, jika Anda ingin menyimpan fragment ke back stack
+        transaction.addToBackStack(null)
         transaction.commit()
     }
 }
