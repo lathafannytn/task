@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- State ketika item dipilih -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#E6D1FF" /> <!-- Warna latar belakang saat dipilih -->
+            <corners android:radius="16dp" /> <!-- Sudut melengkung -->
+        </shape>
+    </item>
+
+    <!-- State default (tidak dipilih) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" /> <!-- Latar belakang transparan -->
+            <stroke android:width="2dp" android:color="#5C4878" /> <!-- Border berwarna -->
+            <corners android:radius="16dp" /> <!-- Sudut melengkung -->
+        </shape>
+    </item>
+
+</selector>

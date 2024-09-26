@@ -1,0 +1,17 @@
+<resources>
+    <!-- Style Aplikasi -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Font Default Aplikasi -->
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <!-- Style untuk Teks di TabLayout -->
+    <style name="TabTextStyle">
+        <!-- Ukuran teks untuk Tab -->
+        <item name="android:textSize">14sp</item>
+        <!-- Gunakan font Poppins yang sudah ada -->
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <!-- Warna default untuk teks Tab -->
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>

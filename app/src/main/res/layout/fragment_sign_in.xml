@@ -1,0 +1,118 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#F1E9FF">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/task"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Email Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Email"
+        app:startIconDrawable="@drawable/ic_email"
+        app:endIconMode="clear_text"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeColor="@android:color/transparent"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/poppins_regular"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        app:startIconDrawable="@drawable/ic_password"
+        app:endIconMode="password_toggle"
+        app:boxBackgroundMode="filled"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeColor="@android:color/transparent"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:fontFamily="@font/poppins_regular"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/signup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have any account?"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/register_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:clickable="true"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Register"
+        android:textColor="@color/purple_200"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        android:onClick="onRegisterClick"/>
+
+</LinearLayout>
